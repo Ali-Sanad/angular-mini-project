@@ -1,0 +1,31 @@
+.listSchool {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  max-height: 30%;
+  margin-top: 2rem;
+}
+.listSchool .cardContent {
+  min-width: 100%;
+  border: none;
+  box-shadow: 0px 2px 1px 2px lightgray;
+}
+.listSchool .sideSection {
+  background-color: gray;
+  width: 20%;
+  border-radius: 10px 0 0 10px;
+}
+.listSchool .sideSection:hover {
+  background-color: #8f267b;
+}
+.listSchool .sideRight {
+  border-radius: 0 10px 10px 0;
+  width: 80%;
+}
+
+.listSchool .sectionNameSpan {
+  color: white;
+  margin: 2rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}

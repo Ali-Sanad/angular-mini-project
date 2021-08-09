@@ -1,0 +1,93 @@
+<div class="schoolForm">
+    <div class="container">
+        <form #f="ngForm" (ngSubmit)="f.form.valid && submit(f)" name="form" novalidate>
+            <div class="form-group">
+                <!-- dropdown list-->
+                <label for="school" class="header">School</label>
+                <select placeholder="select School" [(ngModel)]="school" #schl="ngModel" class="form-control"
+                    name="school" required>
+                    <option disabled>Select School</option>
+                    <option *ngFor="let school of schoolList">{{ school }}</option>
+                </select>
+                <!-- showing inputs after selecting a school -->
+                <div *ngIf="schl.valid">
+                    <table class="table table-borderless" #myTable>
+                        <thead>
+                            <tr>
+                                <th scope="col">Section (Optional)</th>
+                                <th scope="col">Class Name</th>
+                                <th scope="col">Grades</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let item of fields; let i = index">
+                            <td>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" [(ngModel)]="item.sectionName"
+                                        #sectionName="ngModel" name="sectionName_{{ item.id }}" [ngClass]="{
+                                        'is-invalid': sectionName.touched && sectionName.invalid
+                                          }" maxlength="3" />
+                                    <div *ngIf="sectionName.touched && sectionName.invalid" class="invalid-feedback">
+                                        <div *ngIf="sectionName.errors.maxlength">
+                                            max length less than 3
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" [(ngModel)]="item.className"
+                                        name="className_{{ item.id }}" #className="ngModel" [ngClass]="{
+                        'is-invalid': className.touched && className.invalid
+                      }" required />
+                                    <div *ngIf="className.touched && className.invalid" class="invalid-feedback">
+                                        <div *ngIf="className.errors.required">
+                                            class name is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <select class="form-control" [(ngModel)]="item.Grades" name="Grades_{{ item.id }}"
+                                        #Grades="ngModel" [ngClass]="{ 'is-invalid': Grades.touched && Grades.invalid }"
+                                        required>
+                                        <option disabled>Select Grades</option>
+                                        <option *ngFor="let webGrade of websiteGrade">
+                                            {{ webGrade }}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="Grades.touched && Grades.invalid" class="invalid-feedback">
+                                        <div *ngIf="Grades.errors.required">Grade is required</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <i class="far fa-trash-alt mt-2 d-block" disabled *ngIf="item.id < 1; else enabled"></i>
+                            </td>
+                            <ng-template #enabled>
+                                <i class="far fa-trash-alt mt-2 d-block" (click)="deleteRow(i)" enabled></i>
+                            </ng-template>
+                        </tbody>
+                    </table>
+                    <div class="borderButton">
+                        <a class="btnAddClass" type="submit" (click)="addClass($event)">
+                            <span><i class="fas fa-plus-circle"></i></span> Add class
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="btnBottom">
+                <button class="btnDone" type="submit" [disabled]="!f.form.valid">
+                    Done
+                </button>
+                <button class="btnCancel" (click)="cancelAction(f)">
+                    cancel
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

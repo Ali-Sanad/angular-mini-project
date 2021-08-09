@@ -1,0 +1,58 @@
+.schoolForm {
+  border-radius: 10px;
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 1px 2px lightgray;
+
+  margin-top: 2rem;
+  padding: 0.7rem;
+}
+.schoolForm .form-group .header {
+  font-size: 2rem;
+  color: rgb(122, 118, 118);
+}
+.schoolForm .btnDone {
+  color: #9d74bc;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  background-color: white;
+}
+.schoolForm .btnCancel {
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  background-color: white;
+}
+.schoolForm .btnBottom {
+  display: flex;
+  float: right;
+}
+.schoolForm .btnAddClass {
+  color: #8b5aaf;
+  font-weight: bold;
+}
+.schoolForm .btnAddClass,
+button:focus {
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.schoolForm .spanAdd {
+  border-radius: 150%;
+  background-color: mediumvioletred;
+  color: white;
+}
+.schoolForm .borderButton {
+  border-bottom: 0.5px solid #c38ee9;
+  margin-bottom: 2rem;
+}
+.schoolForm .table {
+  margin-top: 2rem;
+}
+.schoolForm .fa-trash-alt {
+  color: #ff4c4c;
+}

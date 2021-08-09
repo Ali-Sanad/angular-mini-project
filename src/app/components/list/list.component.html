@@ -1,0 +1,16 @@
+<div *ngFor="let list of Lists" class="listSchool mb-5">
+    <div class="card mb-3 cardContent">
+        <div class="row no-gutters">
+            <div class=" sideSection">
+                <h5 class="sectionNameSpan d-block text-center mt-3  "> {{list.sectionName.toUpperCase()}}</h5>
+            </div>
+            <div class=" sideRight">
+                <div class="card-body">
+                    <h5 class="card-title"> {{list.className}}</h5>
+                    <p class="card-text"><small class="text-muted">School: {{list.school}}</small></p>
+                    <p class="card-text"><small class="text-muted">Grade: {{list.Grades}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

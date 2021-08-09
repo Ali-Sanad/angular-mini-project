@@ -1,0 +1,10 @@
+<section class="landingPage">
+  <app-header></app-header>
+  <div class="container ">
+    <app-form (classesFields)="onclassesAdded($event)"></app-form>
+
+    <app-list [Lists]="storedClasses"></app-list>
+
+  </div>
+  <app-footer></app-footer>
+</section>
